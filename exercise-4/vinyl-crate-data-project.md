@@ -1,6 +1,6 @@
 # Create "VinylCrate.Data" and add project reference to "VinylCrate.Web"
 
-In this exercise we will be creating our Data layer, and adding a reference to it inside of our Web layer. This is a basic N-Tier architecure; you can read more on that [here](https://msdn.microsoft.com/en-us/library/bb384398.aspx) later.
+In this exercise we will be creating our Data layer, and adding a reference to it inside of our Web layer. This is a basic N-Tier architecture; you can read more on that [here](https://msdn.microsoft.com/en-us/library/bb384398.aspx) later.
 
 In your Command/Terminal window, change directory, or `cd` to the root level of your project. Then, we will run `yo aspnet` again, but this time selecting `Class Library`.
 

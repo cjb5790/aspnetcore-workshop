@@ -27,7 +27,7 @@ gulp.task('bundle:site', function () {
 
 ![](./vc-gulp-main-css.png)
 
-Make sure to run `gulp` now that we've modified our bundle. 
+Make sure to run `gulp` now that we've modified our bundle.
 
 Now, let's add a property to our `ArtistListTagHelper` to accept any CSS classes and apply them to the list.
 
@@ -35,7 +35,7 @@ Now, let's add a property to our `ArtistListTagHelper` to accept any CSS classes
 public string CssClass { get; set; }
 ```
 
-Inside of the `Process()` function, we can now add this value to the "class" attribute of the outout tag.
+Inside of the `Process()` function, we can now add this value to the "class" attribute of the output tag.
 
 ```csharp
 output.Attributes["class"] = CssClass;

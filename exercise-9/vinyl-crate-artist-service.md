@@ -1,4 +1,4 @@
-# Create ArtistService in VinylCrate.Data and retrieve database records
+# Create ArtistService in VinylCrate.Data and Retrieve Database Records
 
 With our database connection configured, we can now create a repository inside of our Data layer to retrieve our Artist records for us. The repository pattern is a common design pattern used in data retrieval in order to keep separation of concerns between the database and your business logic. You can read more on it [here](https://msdn.microsoft.com/en-us/library/ff649690.aspx).
 
@@ -36,7 +36,7 @@ dnu build
 
 ![](./vc-build-framework.png)
 
-We are presented with a handful of failures on build. If we examine the errors, we will see that the MongoDB Driver we just added is not compatible with DNXCore. 
+We are presented with a handful of failures on build. If we examine the errors, we will see that the MongoDB Driver we just added is not compatible with DNXCore.
 
 In order to resolve this, we have a few options...
 
@@ -44,7 +44,7 @@ a) Find and use a .NET Core supported library
 b) Use separate libraries for .NET 4.5 and .NET Core
 c) Remove our dependency on .NET Core
 
-If we were to use option b, we would essentially be forced to put IF/DEF's throughout our code to use the correct libraries based on the target framework. While this option does improve compatability, the ASP.NET team has admitted this is not a great solution.
+If we were to use option b, we would essentially be forced to put IF/DEF's throughout our code to use the correct libraries based on the target framework. While this option does improve compatibility, the ASP.NET team has admitted this is not a great solution.
 
 For the purposes of our exercises, we are not using anything .NET Core specific, so let's remove our dependency on it.
 
@@ -84,7 +84,7 @@ If we build after restore, we should have a green build once again.
 
 ![](./vc-green-build.png)
 
-Alright. Now we have our MongoDB Driver and we've resolved our build compatability issues. Back to creating our ArtistRepository.
+Alright. Now we have our MongoDB Driver and we've resolved our build compatibility issues. Back to creating our ArtistRepository.
 
 First, we have to make a small adjustment to our model. MongoDB, like ~~all~~ most databases, has an Id field. This field is auto-generated on record submission. Now that we are going to be retrieving records from the database, the MongoDB Driver handles the mapping and serialization for us. In order for this to occur without error, we must add the identifier field to our model. MongoDB is very strict when it comes to serialization. By default, if all fields aren't present on the class you are serializing into, there will be an error. There are overrides for this, but given that we are working with a single Id field, we are going to just add this to our model. The Id field within Mongo can be referenced by two names: _id or ObjectId. I normally opt for _id due to the fact that the field type is also ObjectId; this keeps a distinct difference between type and name.
 
@@ -213,6 +213,6 @@ public List<Artist> GetAll()
 
 ![](./vc-artist-getall.png)
 
-We can now retrieve Artist records from the database using our repository. Unfortunately, we cannot test this until we move into the Web layer and build our calls into the repisitory. Let's do that next...
+We can now retrieve Artist records from the database using our repository. Unfortunately, we cannot test this until we move into the Web layer and build our calls into the repository. Let's do that next...
 
 ...in Exercise #10.

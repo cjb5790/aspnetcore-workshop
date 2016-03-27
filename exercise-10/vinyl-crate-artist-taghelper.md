@@ -102,7 +102,7 @@ And let's create a list of our artists. We will need to loop over them and outpu
 <ul>
 @foreach (var artist in Model)
 {
-	<li>@artist.Name</li> 
+	<li>@artist.Name</li>
 }
 </ul>
 ```
@@ -111,9 +111,9 @@ Building and running should result in a simple list of our artists.
 
 ![](./vc-browser-artist-list.png)
 
-If the requirement from the business was to create this list of artists, we could consider our task complete. 
+If the requirement from the business was to create this list of artists, we could consider our task complete.
 
-I don't know about you, though, but I'm not crazy about the syntax of the `foreach` loop in the view. 
+I don't know about you, though, but I'm not crazy about the syntax of the `foreach` loop in the view.
 
 Let's create a quick TagHelper to improve the markup in our view, and one that we can reuse anytime we need a simple list.
 

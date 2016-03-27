@@ -51,14 +51,14 @@ Now, open up the `Startup.cs` class.
 
 ![](./vinyl-crate-startup.png)
 
-This class is the entry point to our application. Notice the Main method on line 32 similar to a console application?
+This class is the entry point to our application. Notice the Main method on line 32 similar to a console application.
 
 The `ConfigureServices` method is where we will define & configure all of the services we are using, as well as perform dependency injection.
 The `Configure` method is where we will give our application some instructions on how to run, as well as environmental configurations.
 
 Currently, in our `Configure` method, we are calling `app.Run()` which simply does a `Response.Write()` to print out "Hello World!"
 
-If we look at our `project.json` file and view our dependencies, we will see that MVC is not currently part of our project. 
+If we look at our `project.json` file and view our dependencies, we will see that MVC is not currently part of our project.
 
 ![](./vc-project-json.png)
 

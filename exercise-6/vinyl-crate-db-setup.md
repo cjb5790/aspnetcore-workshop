@@ -1,6 +1,6 @@
 # Setting up MongoDB and Configuring VinylCrate.Web for Database Connection
 
-Before we continue develoing our VinylCrate application, let's take some time to set up a database.
+Before we continue developing our VinylCrate application, let's take some time to set up a database.
 
 For this exercise, we will be using MongoDB. For installation, please go to the [MongoDB Downloads page](https://www.mongodb.org/downloads#production). You may also reference the following [docs page](https://docs.mongodb.org/master/installation/) to assist in the process.
 
@@ -26,7 +26,7 @@ mongod --dbpath=C:\data\db
 
 With the MongoDB service running, we can now use the MongoDB Client to interact with the database.
 
-In a new Command/Terminal tab or window, run the folling command to open the MongoDB Client:
+In a new Command/Terminal tab or window, run the following command to open the MongoDB Client:
 
 ```
 mongo
@@ -36,7 +36,7 @@ mongo
 
 We are now running inside of the MongoDB Client and can perform database commands.
 
-When first startng the shell, we connect to the "test" database. We should create a new database specifically for VinylCrate.
+When first starting the shell, we connect to the "test" database. We should create a new database specifically for VinylCrate.
 
 By running:
 

@@ -31,7 +31,7 @@ Take Yeoman's advice and run these commands.
 cd [YOUR PROJECT NAME]
 ```
 
-The next command will restore all dependencies the application has via NuGet. 
+The next command will restore all dependencies the application has via NuGet.
 
 ```
 dnu restore

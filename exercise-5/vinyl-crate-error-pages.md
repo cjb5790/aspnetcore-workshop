@@ -1,6 +1,6 @@
 # Adding Error Pages to VinylCrate.Web
 
-In Exercise #3 we set up our view to accept a model and print out a value. At this point, we could add "ASP.NET Core" to our LinkedIn profiles; we're getting good. But what if we weren't? We're working exclusively in Visual Studio Code, with (at times) limited intellisense and auto complete. Visual Studio proper handles a lot for us that we may take for granted. What if we had forgotten to add the `namespace` to our Artist class? Or if we had forgotten to declare our model in our view before using it? Let's explore that...
+In Exercise #3 we set up our view to accept a model and print out a value. At this point, we could add "ASP.NET Core" to our LinkedIn profiles; we're getting good. But what if we weren't? We're working exclusively in Visual Studio Code, with (at times) limited Intellisense and auto complete. Visual Studio proper handles a lot for us that we may take for granted. What if we had forgotten to add the `namespace` to our Artist class? Or if we had forgotten to declare our model in our view before using it? Let's explore that...
 
 It's time to break things. Fun, right?
 
@@ -67,18 +67,18 @@ Open `Startup.cs`. Add a parameter to `Configure` for the HostingEnvironment:
 public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 ```
 
-Within the `Configure()` method, we will now add a conditional to determine what our environment is. 
+Within the `Configure()` method, we will now add a conditional to determine what our environment is.
 
 ```csharp
 if (env.IsDevelopment())
 {
-	app.UseDeveloperExceptionPage();   
+	app.UseDeveloperExceptionPage();
 }
 ```
 
 ![](./vc-env-conditional.png)
 
-The `IsDevelopment()` function is built in and will look for the environment variable to be "Development".
+The `IsDevelopment()` function is built-in and will look for the environment variable to be "Development".
 
 Restore and Build to verify the changes.
 

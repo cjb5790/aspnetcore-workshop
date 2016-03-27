@@ -44,7 +44,7 @@ If we look at the contents of our `package.json` now, we will see a dependencies
 
 ![](./vc-package-json-bs.png)
 
-And in our project directory, we now see a `node_modules` folder. This is where all npm packages will download to. 
+And in our project directory, we now see a `node_modules` folder. This is where all npm packages will download to.
 
 **IMPORTANT**: Do **NOT** commit this folder to source control. Many npm packages have many dependencies and this folder can grow quite large at times. All packages will be resoted by running `npm install`. Please add this to your ignore lists.
 
@@ -108,7 +108,7 @@ var paths = {
 
 Now we can write our first task, which will be "copy:lib".
 
-Let's take a look at the fully writeen task and break it down.
+Let's take a look at the fully written task and break it down.
 
 ```js
 gulp.task('copy:lib', function () {
@@ -132,7 +132,7 @@ The first argument of the `task()` function is the task name. The second is an a
 
 Inside of our `copy:lib` task, we are first defining the list of specific files we want to move from our `node_modules` folder.
 
-We then loop through each of these and oush the full paths into an array.
+We then loop through each of these and push the full paths into an array.
 
 That array is then passed to a built-in gulp function, `src()` which defines the source files for the next operation we are piping into. The next operation is `dest()`, which takes a folder location and performs a copy operation.
 
@@ -152,9 +152,9 @@ if you look at your `lib` folder, you should now see the bootstrap files.
 
 ![](./vc-bootstrap-lib.png)
 
-With our lib folder in place, let's create our first bundle. 
+With our lib folder in place, let's create our first bundle.
 
-The lib folder is strictly a place to reference files from when bundling. I recommend not using the lib folder to reference directly on the page (in a Production environment). The purpose of the lib folder is more or less separation of concerns. If our package manager of choice changes from npm to anything else in the future, we only need to update our `copy:lib` task and not every bundle task. 
+The lib folder is strictly a place to reference files from when bundling. I recommend not using the lib folder to reference directly on the page (in a Production environment). The purpose of the lib folder is more or less separation of concerns. If our package manager of choice changes from npm to anything else in the future, we only need to update our `copy:lib` task and not every bundle task.
 
 I also recommend creating a function for bundling that will be reused through your gulp bundle tasks.
 
@@ -287,6 +287,3 @@ As a semi-quick note, Microsoft has a library of TagHelpers we can add a referen
 	<link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
 </environment>
 ```
-
-
-

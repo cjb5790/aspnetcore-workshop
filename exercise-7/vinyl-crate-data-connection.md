@@ -4,7 +4,7 @@ Now that we have a database, we can configure our application to connect to it a
 
 The first thing we must do is configure our connection information, such as the server address, port, and database name. As mentioned earlier, ASP.NET Core has replaced XML config files with simple JSON files.
 
-For config files, you can locate these wherever you prefer. You can also name them whatever you prefer. The default template creates an `appSettings.json` file for you in the project root. I persoanlly prefer to create a `config.json` file in the root.
+For config files, you can locate these wherever you prefer. You can also name them whatever you prefer. The default template creates an `appSettings.json` file for you in the project root. I personally prefer to create a `config.json` file in the root.
 
 To begin this exercise, inside of `VinylCrate.Web`, create a JSON file in the project root. I recommend naming it `config.json` for consistency with this demo.
 
@@ -63,7 +63,7 @@ public Startup()
 }
 ```
 
-Now, let's create a new property, which will be our confiuration object. There is a new interface available in ASP.NET Core, IConfigurationRoot.
+Now, let's create a new property, which will be our configuration object. There is a new interface available in ASP.NET Core, IConfigurationRoot.
 
 ```chsarp
 public IConfigurationRoot Configuration { get; set; }
@@ -71,7 +71,7 @@ public IConfigurationRoot Configuration { get; set; }
 
 Inside of the constructor, we will set the value of this property using a ConfigurationBuilder. The ConfigurationBuilder allows you to specify any configuration file you may have, as well as environment variables.
 
-The ConfigurationBuilder will take all of these files and merge them into one serialized object. 
+The ConfigurationBuilder will take all of these files and merge them into one serialized object.
 
 ```csharp
 public Startup()
@@ -84,7 +84,7 @@ public Startup()
 }
 ```
 
-If you have multiple config files per each environment driven by an environment variable, you can pull in the HostingEnvironment to assist in deciding ehich file to use:
+If you have multiple config files per each environment driven by an environment variable, you can pull in the HostingEnvironment to assist in deciding which file to use:
 
 ```csharp
 public Startup(IHostingEnvironment env)
@@ -97,7 +97,7 @@ public Startup(IHostingEnvironment env)
 }
 ```
 
-To this point, we've established our configuration root, but we still have not applied any values to our MongoConnection object. The ConfigureServices method within the Startup is where all dependency injection occurs. This is where we will assign our MongoCOnnection model, and wire it up for use throughout our application.
+To this point, we've established our configuration root, but we still have not applied any values to our MongoConnection object. The ConfigureServices method within the Startup is where all dependency injection occurs. This is where we will assign our MongoConnection model, and wire it up for use throughout our application.
 
 Inside of Configure(), add the following line:
 
@@ -140,12 +140,12 @@ Within the constructor is where we will wire up our dependency injection. By add
 ```csharp
 public HomeController(IOptions<MongoConnection> mongoConnection)
 {
-	DatabaseConnection = mongoConnection.Value;	
+	DatabaseConnection = mongoConnection.Value;
 }
 ```
 
 With the MongoConnection wired up, let's test...
 
-...but Visual Studio Code doesn't support debugging with breakpoints (yet). 
+...but Visual Studio Code doesn't support debugging with breakpoints (yet).
 
 Let's pause here until the next exercise.
