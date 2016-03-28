@@ -8,11 +8,11 @@ For config files, you can locate these wherever you prefer. You can also name th
 
 To begin this exercise, inside of `VinylCrate.Web`, create a JSON file in the project root. I recommend naming it `config.json` for consistency with this demo.
 
-![](./vc-config-json.png)
+![](./images/vc-config-json.png)
 
 Within our `config.json`, let's add properties for our connection string:
 
-![](./vc-config-json-stub.png)
+![](./images/vc-config-json-stub.png)
 
 Now, to populate these properties. The default server location for Mongo is `localhost:27017`. Our ServerAndPort value will be:
 
@@ -26,7 +26,7 @@ And if you recall in the previous exercise, our DatabaseName will be:
 VinylCrate
 ```
 
-![](./vc-config-json-full.png)
+![](./images/vc-config-json-full.png)
 
 To this point, we have our connection settings inside of our `config.json`, but how do we reference this in code?
 
@@ -43,7 +43,7 @@ namespace VinylCrate.Web.Models
 }
 ```
 
-![](./vc-mongo-connection.png)
+![](./images/vc-mongo-connection.png)
 
 Now that we have our model, we can use the built-in dependency injection from the framework within Startup to configure the serialization of our model.
 
@@ -107,11 +107,11 @@ services.Configure<MongoConnection>(Configuration.GetSection("Data"));
 
 This line will use the ConfigurationRoot object (the value of the Configuration property) and retrieve the section from it called "Data", which it will then use to serialize into a MongoConnection object.
 
-![](./vc-startup-configuration.png)
+![](./images/vc-startup-configuration.png)
 
 We can now use dependency injection within our Controllers and other classes to access the `MongoConnection` properties. In order to do, this, we will need to add a dependency on the ASP.NET `OptionsModel`.
 
-![](./vc-optionsmodel-projectjson.png)
+![](./images/vc-optionsmodel-projectjson.png)
 
 Run `dnu restore`.
 

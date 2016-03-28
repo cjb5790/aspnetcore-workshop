@@ -6,4 +6,4 @@ For this exercise, let's pretend we wanted to share `VinylCrate.Data` with the w
 
 With ASP.NET Core, this is very straightforward. In the Command/Terminal window, run `dnu pack` and the `nupkg` file will be created for you, referencing values in your `project.json` for naming and versioning.
 
-![](./vc-dnu-pack.png)
+![](./images/vc-dnu-pack.png)

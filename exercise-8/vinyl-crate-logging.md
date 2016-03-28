@@ -12,7 +12,7 @@ In order to begin using logging, we need to pull in the necessary dependencies. 
 "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
 ```
 
-![](./vc-logging-projectjson.png)
+![](./images/vc-logging-projectjson.png)
 
 There are a few configuration settings we have to add before we can wire up our logging through DI. Open the `config.json` and add:
 
@@ -66,7 +66,7 @@ Within the constructor, create a logger instance from the `LoggerFactory`:
 _logger = loggerFactory.CreateLogger<HomeController>();
 ```
 
-![](./vc-controller-logging-di.png)
+![](./images/vc-controller-logging-di.png)
 
 Now that we have our logger, we can use this to record the values of our variables at the time of execution. Inside of our constructor, let's log the current values of the MongoConnection ServerAndPort and DatabaseName.
 
@@ -77,7 +77,7 @@ _logger.LogInformation($"Server And Port: {DatabaseConnection.ServerAndPort}");
 _logger.LogInformation($"Database Name: {DatabaseConnection.DatabaseName}");
 ```
 
-![](./vc-log-information.png)
+![](./images/vc-log-information.png)
 
 Sidebar: The above lines of code use a C# 6.0 feature called string interpolation. This is a replacement for `string.Format()` and allows for inline use of variable values, removing the need for placeholders. String interpolation can be used by specififying `$` before the string.
 
@@ -90,4 +90,4 @@ dnu build
 
 With logging enabled, when we run `dnx web` we will see more "noise" in our Command/Terminal window. We should also be able to see the two log messages we added regarding the MongoConnection values.
 
-![](./vc-dnx-logging.png)
+![](./images/vc-dnx-logging.png)

@@ -4,13 +4,13 @@ With our database connection configured, we can now create a repository inside o
 
 Create a `Repositories` folder inside of `VinylCrate.Data`. Within this folder, let's create the repository class for Artists.
 
-![](./vc-artist-repository.png)
+![](./images/vc-artist-repository.png)
 
 In many instances, most of us are used to using ORM's to connect to databases. For this exercise we are going to be using the [MongoDB Driver for C#](https://docs.mongodb.org/ecosystem/drivers/csharp/), which is essentially a lightweight ORM. As if with any other library, we will be referencing this via NuGet. Let's add the dependency within the `project.json` file of `VinylCrate.Data`.
 
 Looking at the `project.json` for this project, it appears slightly different than the one in `VinylCrate.Web`.
 
-![](./vc-data-project-json.png)
+![](./images/vc-data-project-json.png)
 
 Looking at the "frameworks" section, we see that we are targeting both .NET 4.5.1 and .NET 5.4 (or .NET Core). Within the designation for "dotnet5.4" we see a "dependencies" node. You can specify framework specific dependencies. This is helpful in the instance of having a library that may be compatible with one framework version but not the other. By default, Yeoman is giving us beta builds of standard libraries we would find in .NET 4.5.1 for .NET Core.
 
@@ -22,11 +22,11 @@ In order to add our dependency on the MongoDB Driver, we will be creating a "dep
   },
 ```
 
-![](./vc-data-dependencies.png)
+![](./images/vc-data-dependencies.png)
 
 Now that we have added the dependency, we need to run `dnu restore`.
 
-![](./vc-dnu-restore-mongo.png)
+![](./images/vc-dnu-restore-mongo.png)
 
 Now, to verify our changes so far, let's build:
 
@@ -34,7 +34,7 @@ Now, to verify our changes so far, let's build:
 dnu build
 ```
 
-![](./vc-build-framework.png)
+![](./images/vc-build-framework.png)
 
 We are presented with a handful of failures on build. If we examine the errors, we will see that the MongoDB Driver we just added is not compatible with DNXCore.
 
@@ -62,9 +62,9 @@ Remove the following block from the `VinylCrate.Data` `project.json` file:
 }
 ```
 
-![](./vc-data-project-json-remove.png)
+![](./images/vc-data-project-json-remove.png)
 
-![](./vc-project-json-removed.png)
+![](./images/vc-project-json-removed.png)
 
 And remove the following block from the `VinylCrate.Web` `project.json` file:
 
@@ -72,17 +72,17 @@ And remove the following block from the `VinylCrate.Web` `project.json` file:
 "dnxcore50": {}
 ```
 
-![](./vc-web-project-json-remove.png)
+![](./images/vc-web-project-json-remove.png)
 
-![](./vc-web-project-json-removed.png)
+![](./images/vc-web-project-json-removed.png)
 
 Now, we will need to perform a new restore. The `dnu restore` command will look at the target frameworks and pull down package versions for each target. Now that we have modified our targets, we must restore again.
 
-![](./vc-build-restore.png)
+![](./images/vc-build-restore.png)
 
 If we build after restore, we should have a green build once again.
 
-![](./vc-green-build.png)
+![](./images/vc-green-build.png)
 
 Alright. Now we have our MongoDB Driver and we've resolved our build compatibility issues. Back to creating our ArtistRepository.
 
@@ -96,7 +96,7 @@ using MongoDB.Bson;
 
 Now, add the _id field:
 
-![](./vc-artist-bson.png)
+![](./images/vc-artist-bson.png)
 
 Moving (back) onto our ArtistRepository, let's configure our dependencies using dependency injection via constructor injection. We will need to do a small refactor, given that our Artist model has FirstName and LastName, but our Mongo Collection only has a singular name field. 
 
@@ -106,7 +106,7 @@ Let's replace FirstName and LastName within `Artist` with:
 public string Name { get; set; }
 ```
 
-![](./vc-artist-name.png)
+![](./images/vc-artist-name.png)
 
 Now, remove the model references from our Home/Index (Controller and View, both).
 
@@ -171,7 +171,7 @@ public ArtistRepository(string serverAndPort, string databaseName)
 }
 ```
 
-![](./vc-artist-repo-1.png)
+![](./images/vc-artist-repo-1.png)
 
 Build to make sure we didn't cause any errors.
 
@@ -211,7 +211,7 @@ public List<Artist> GetAll()
 }
 ```
 
-![](./vc-artist-getall.png)
+![](./images/vc-artist-getall.png)
 
 We can now retrieve Artist records from the database using our repository. Unfortunately, we cannot test this until we move into the Web layer and build our calls into the repository. Let's do that next...
 

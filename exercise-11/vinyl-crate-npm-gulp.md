@@ -16,11 +16,11 @@ And follow the on-screen prompts.
 
 This will create a `package.json` file for you. This stores information about your project and the dependencies it has.
 
-![](./vc-npm-init.png)
+![](./images/vc-npm-init.png)
 
 Now, if you look at the root of the `VinylCrate.Web` project, you will see your `package.json` file.
 
-![](./vc-web-package-json.png)
+![](./images/vc-web-package-json.png)
 
 As mentioned before, this file will keep track of the project npm dependencies. This way, when a colleague is working through the same code base, they can perform a base `npm install` and all necessary packages will be restored.
 
@@ -38,11 +38,11 @@ Go ahead and install bootstrap:
 npm install bootstrap --save
 ```
 
-![](./vc-npm-install-bootstrap.png)
+![](./images/vc-npm-install-bootstrap.png)
 
 If we look at the contents of our `package.json` now, we will see a dependencies section with bootstrap recorded.
 
-![](./vc-package-json-bs.png)
+![](./images/vc-package-json-bs.png)
 
 And in our project directory, we now see a `node_modules` folder. This is where all npm packages will download to.
 
@@ -65,7 +65,7 @@ npm install gulp --save
 
 In the root of the `VinylCrate.Web` project, create your gulpfile. This is the file that gulp looks for by convention when running gulp tasks from the Command/Terminal window.
 
-![](./vc-gulpfile.png)
+![](./images/vc-gulpfile.png)
 
 The gulpfile is nothing more than just a javascript file.
 
@@ -81,7 +81,7 @@ At the same level there would also be an `images` folder and any other asset fol
 
 Within each of those folders would be a folder for "css" and another for "js".
 
-![](./vc-wwwroot-assets.png)
+![](./images/vc-wwwroot-assets.png)
 
 In our gulpfile, we first need to add a dependency on gulp using `require` syntax. 
 
@@ -146,11 +146,11 @@ Again, the first argument is the task name, but in the second argument we are us
 
 Head to your Command/Terminal window and run `gulp`. In the output, you will see that the `copy:lib` task was run.
 
-![](./vc-gulp.png)
+![](./images/vc-gulp.png)
 
 if you look at your `lib` folder, you should now see the bootstrap files.
 
-![](./vc-bootstrap-lib.png)
+![](./images/vc-bootstrap-lib.png)
 
 With our lib folder in place, let's create our first bundle.
 
@@ -223,9 +223,9 @@ Now in our "default" bundle, we have a single reference to the "bundle" task:
 gulp.task('default', ['bundle']);
 ```
 
-![](./vc-gulp-full.png)
+![](./images/vc-gulp-full.png)
 
-![](./vc-gulp-terminal.png)
+![](./images/vc-gulp-terminal.png)
 
 Our site css bundle is now in our `dist` folder, and we can reference it in our view.
 
@@ -243,7 +243,7 @@ export MONO_MANAGED_WATCHER=false
 
 At this point, we should be able to render our view and see our stylesheet loading via the deveoper tools. But it currently returns a 404.
 
-![](./vc-site-css-404.png)
+![](./images/vc-site-css-404.png)
 
 This is due to the fact that, by default, ASP.NET Core will not serve static files. This is a configuration that needs to take place in the `Startup.cs`. We need to add a dependency on "Microsoft.AspNet.StaticFiles" and perform a restore.
 
@@ -255,7 +255,7 @@ This is due to the fact that, by default, ASP.NET Core will not serve static fil
 dnu restore
 ```
 
-![](./vc-project-json-static-files.png)
+![](./images/vc-project-json-static-files.png)
 
 Then in the `Startup.cs`, we will tell the app to `UseStaticFiles()` BEFORE the `app.useMvc()` call.
 
@@ -263,7 +263,7 @@ Then in the `Startup.cs`, we will tell the app to `UseStaticFiles()` BEFORE the 
 app.UseStaticFiles();
 ```
 
-![](./vc-startup-static-files.png)
+![](./images/vc-startup-static-files.png)
 
 Now, running in the browser, our site.css should load succesfully.
 
@@ -271,7 +271,7 @@ Now, running in the browser, our site.css should load succesfully.
 dnx web
 ```
 
-![](./vc-site-css-200.png)
+![](./images/vc-site-css-200.png)
 
 As a semi-quick note, Microsoft has a library of TagHelpers we can add a reference to. In this library, there is an `<environment>` TagHelper, which allows you to specify conditional asset rendering in your view based on the current environment. For example, in Development, you won't want to load minified files for quicker debugging, but you do in Production for performance. Here is an example:
 

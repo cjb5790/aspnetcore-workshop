@@ -4,7 +4,7 @@ In the last exercise we wrote our ArtistRepository to retrieve Art records from 
 
 Until now we've been using our HomeController for everything. Let's create a new ArtistController and Index View.
 
-![](./vc-artist-vc.png)
+![](./images/vc-artist-vc.png)
 
 ## Quick Sidebar:
 
@@ -22,7 +22,7 @@ This also allows for easy overriding of the default MVC routing. For example, yo
 [Route("")]
 ```
 
-![](./vc-empty-route.png)
+![](./images/vc-empty-route.png)
 
 This is something I have started doing in my controllers, that way when working inside of a controller, I can quickly construct and debug routes without deciphering a RouteConfig file located elsewhere.
 
@@ -68,7 +68,7 @@ public ArtistController(IOptions<MongoConnection> databaseConnection)
 }
 ```
 
-![](./vc-artist-controller.png)
+![](./images/vc-artist-controller.png)
 
 Go ahead and build. Did you remember your using statements?
 
@@ -88,7 +88,7 @@ public IActionResult Index()
 }
 ```
 
-![](./vc-artist-getall-controller.png)
+![](./images/vc-artist-getall-controller.png)
 
 Inside ouf our view, declare the model:
 
@@ -109,7 +109,7 @@ And let's create a list of our artists. We will need to loop over them and outpu
 
 Building and running should result in a simple list of our artists.
 
-![](./vc-browser-artist-list.png)
+![](./images/vc-browser-artist-list.png)
 
 If the requirement from the business was to create this list of artists, we could consider our task complete.
 
@@ -119,11 +119,11 @@ Let's create a quick TagHelper to improve the markup in our view, and one that w
 
 By convention, create a "TagHelpers" folder in the root of the project.
 
-![](./vc-taghelpers-folder.png)
+![](./images/vc-taghelpers-folder.png)
 
 Create the class, which will be our TagHelper, `ArtistListTagHelper.cs`.
 
-![](./vc-artistlist-taghelper.png)
+![](./images/vc-artistlist-taghelper.png)
 
 A TagHelper is defined as any class which inherits from `ITagHelper`. A TagHelper has a single `Process()` function, and only accepts input and returns an output. They have been engineered for simplicity; improving upon the model of their predecessor, HTML Helpers.
 
@@ -139,7 +139,7 @@ Which requires a reference to:
 using Microsoft.AspNet.Razor.TagHelpers;
 ```
 
-![](./vc-artistlist-taghelper-i.png)
+![](./images/vc-artistlist-taghelper-i.png)
 
 Add the `Process()` function to the class.
 
@@ -166,7 +166,7 @@ Create a property to accept our collection.
 public List<Artist> Collection { get; set; }
 ```
 
-![](./vc-artistlist-collection.png)
+![](./images/vc-artistlist-collection.png)
 
 Just like any of other project, build periodically as you develop.
 
@@ -205,7 +205,7 @@ public override void Process(TagHelperContext context, TagHelperOutput output)
 
 Note, that since our content is HTML, we are actually using the `SetHtmlContent` function to set our output content.
 
-![](./vc-artistlist-output.png)
+![](./images/vc-artistlist-output.png)
 
 Our TagHelper is now complete. In order to use it, though, we need to register it with the framework.
 
@@ -233,4 +233,4 @@ Inside of `Artist/Index.cshtml`, remove the existing loop code and add the follo
 
 Now, if we build and run, we should see a list identical to before, but now with improved markup in the view.
 
-![](./vc-artistlist-browser-final.png)
+![](./images/vc-artistlist-browser-final.png)

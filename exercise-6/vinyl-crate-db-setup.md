@@ -22,7 +22,7 @@ NOTE: The above dbpath is Mac specific. On Windows, this may look something like
 mongod --dbpath=C:\data\db
 ```
 
-![](./vc-mongo-db.png)
+![](./images/vc-mongo-db.png)
 
 With the MongoDB service running, we can now use the MongoDB Client to interact with the database.
 
@@ -32,7 +32,7 @@ In a new Command/Terminal tab or window, run the following command to open the M
 mongo
 ```
 
-![](./vc-mongo-client.png)
+![](./images/vc-mongo-client.png)
 
 We are now running inside of the MongoDB Client and can perform database commands.
 
@@ -46,7 +46,7 @@ use VinylCrate
 
 Mongo will check for an existing database titled "VinylCrate" and if it is not found, it will create one.
 
-![](./vc-switch-db.png)
+![](./images/vc-switch-db.png)
 
 The concept of tables within MongoDB is replaced with Collections, in which Documents are stored.
 
@@ -86,7 +86,7 @@ db.Artists.insert([
 ])
 ```
 
-![](./vc-mongo-artists-insert.png)
+![](./images/vc-mongo-artists-insert.png)
 
 To verify our insertion, let's perform a find for the whole collection:
 
@@ -94,6 +94,6 @@ To verify our insertion, let's perform a find for the whole collection:
 db.Artists.find()
 ```
 
-![](./vc-mongo-artists-find.png)
+![](./images/vc-mongo-artists-find.png)
 
 We can now configure our data layer to talk to this database and retrieve these records.

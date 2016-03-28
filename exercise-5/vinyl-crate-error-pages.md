@@ -6,19 +6,19 @@ It's time to break things. Fun, right?
 
 In our view, let's comment out our model declaration:
 
-![](./vc-view-force-error.png)
+![](./images/vc-view-force-error.png)
 
 Now, if we run our application, we are presented with no error and a blank white screen:
 
-![](./vc-run-no-error.png)
+![](./images/vc-run-no-error.png)
 
-![](./vc-blank-browser.png)
+![](./images/vc-blank-browser.png)
 
 Normally, in this scenario, we would see the "yellow screen of death" from ASP.NET. In ASP.NET Core, everything is modular and the developer error pages must be added.
 
 We will first need to add a dependency on "Microsoft.AspNet.Diagnostics", specifically version "1.0.0-rc1-final":
 
-![](./vc-aspnet-diagnostics.png)
+![](./images/vc-aspnet-diagnostics.png)
 
 After adding this dependency, run `dnu restore`.
 
@@ -30,7 +30,7 @@ Under `Configure()`, set:
 app.UseDeveloperExceptionPages();
 ```
 
-![](./vc-dev-exception-page-startup.png)
+![](./images/vc-dev-exception-page-startup.png)
 
 Now, let's test it.
 
@@ -41,11 +41,11 @@ dnx web
 
 After running the above commands, navigate to your browser and refresh. You should see an error page similar to the following:
 
-![](./vc-error-browser.png)
+![](./images/vc-error-browser.png)
 
 If you scroll down past the Generated Code errors, you will see our error:
 
-![](./vc-error-detail.png)
+![](./images/vc-error-detail.png)
 
 The above error screen captures are of the error page on Mac running on top of Mono. The error pages on Windows will look different.
 
@@ -59,7 +59,7 @@ Open `project.json` and add a dependency for "Microsoft.AspNet.Hosting":
 "Microsoft.AspNet.Hosting": "1.0.0-rc1-final",
 ```
 
-![](./vc-project-json-hosting.png)
+![](./images/vc-project-json-hosting.png)
  
 Open `Startup.cs`. Add a parameter to `Configure` for the HostingEnvironment:
 
@@ -76,7 +76,7 @@ if (env.IsDevelopment())
 }
 ```
 
-![](./vc-env-conditional.png)
+![](./images/vc-env-conditional.png)
 
 The `IsDevelopment()` function is built-in and will look for the environment variable to be "Development".
 
@@ -89,7 +89,7 @@ dnu build
 
 If you pay attention when running `dnx web` you will see that, by default, the environment is set to Production.
 
-![](./dnx-hosting-env.png)
+![](./images/dnx-hosting-env.png)
 
 Reloading our application will result in a blank screen again. In order to run in the "Development" environment, we must pass an argument to the `dnx web` command.
 
@@ -97,7 +97,7 @@ Reloading our application will result in a blank screen again. In order to run i
 dnx web --ASPNET_ENV=Development
 ```
 
-![](./vc-dnx-dev.png)
+![](./images/vc-dnx-dev.png)
 
 We are now running with the environment set to "Development" and will continue receiving our developer error pages.
 

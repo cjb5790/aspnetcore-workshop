@@ -9,7 +9,7 @@ dnvm
 
 If you see this...
 
-![](./dnvm.png)
+![](./images/dnvm.png)
 
 ...then everything is installed correctly.
 
@@ -23,7 +23,7 @@ dnvm list
 
 You should receive a list similar to the following (this is platform dependent):
 
-![](./dnvm-list.png)
+![](./images/dnvm-list.png)
 
 Now, let's set our active runtime. On Windows, this will likely be the `x64 clr` version. On Mac/Linux, this will be the `mono` version.
 

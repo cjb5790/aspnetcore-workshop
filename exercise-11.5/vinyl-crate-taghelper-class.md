@@ -10,7 +10,7 @@ For this exercise, let's create a `main.css` class in the `src` folder containin
 }
 ```
 
-![](./vc-main-css.png)
+![](./images/vc-main-css.png)
 
 Let's add this `main.css` file into our site bundle.
 
@@ -25,7 +25,7 @@ gulp.task('bundle:site', function () {
 });
 ```
 
-![](./vc-gulp-main-css.png)
+![](./images/vc-gulp-main-css.png)
 
 Make sure to run `gulp` now that we've modified our bundle.
 
@@ -41,12 +41,12 @@ Inside of the `Process()` function, we can now add this value to the "class" att
 output.Attributes["class"] = CssClass;
 ```
 
-![](./vc-artistlist-css-class.png)
+![](./images/vc-artistlist-css-class.png)
 
 On the view, add the `css-class` property and then test in the browser.
 
-![](./vc-index-css-class.png)
+![](./images/vc-index-css-class.png)
 
-![](./vc-css-class-browser.png)
+![](./images/vc-css-class-browser.png)
 
 The style is now applied to the list element.
